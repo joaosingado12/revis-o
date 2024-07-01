@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Olá, mundo</h1>
+
+    <form action="{% url 'salvar' %}" method="POST">
+        {% csrf_token %}
+            <h2>nome</h2>
+            <input type="text" name="nome"><br>
+            <h2>numero</h2>
+            <input type="text" name="numero"><br>
+            <h2>idade</h2>
+            <input type="text" name="idade"><br>
+            <h2>altura</h2>
+            <input type="text" name="altura"><br>
+            <h2>time</h2>
+            <input type="text" name="time"><br>
+            <h2>posição</h2>
+            <input type="text" name="posicao"><br>
+            <button type="submit">Criar</button>
+        </ul>
+    </form>
+
+    {% for jogador in jogadores %}
+        <li> {{ jogador.nome }} - {{jogador.numero}} - {{jogador.idade}} - {{jogador.altura}} - {{jogador.time}} - {{jogador.posicao}} <a href="{% url 'editar' jogador.id %}">Editar</a> <a href="{% url 'excluir' jogador.id %}">Excluir</a></li>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Página de edição de jogadores</h1>
+
+    <form action="{% url 'update' jogador.id %}" method="post">
+        
+        {{jogador.nome}}
+        <h2>nome</h2>
+        {% csrf_token %}
+        <input type="text" name="nome" value="{{jogador.nome}}"><br>
+        <h2>numero</h2>
+        <input type="text" name="numero" value="{{ jogador.numero }}"><br>
+        <h2>idade</h2>
+        <input type="text" name="idade" value="{{ jogador.idade }}"><br>
+        <h2>altura</h2>
+        <input type="text" name="altura" value="{{ jogador.altura }}"><br>
+        <h2>time</h2>
+        <input type="text" name="time" value="{{ jogador.time }}"><br>
+        <h2>posição</h2>
+        <input type="text" name="posicao" value="{{ jogador.posicao }}"><br>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>
