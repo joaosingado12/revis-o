@@ -7,6 +7,9 @@ def home(request):
     jogadores = Jogadores.objects.all()
     return render(request, 'home.html', {'jogadores': jogadores})
 
+def novo(request):
+     return render(request, 'novo.html')
+
 def salvar(request):
     vnome = request.POST.get('nome')
     vnumero= request.POST.get('numero')

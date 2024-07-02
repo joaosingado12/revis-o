@@ -9,6 +9,7 @@ class Jogadores(models.Model):
     altura = models.DecimalField(max_digits=3, decimal_places=2)
     time = models.CharField(max_length=100)
     posicao = models.CharField(max_length=20)
+    foto = models.ImageField(upload_to='foto_jogadores', null=True, blank=True)
 
     def __str__(self):
         return self.nome
