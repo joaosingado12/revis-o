@@ -17,7 +17,8 @@ def salvar(request):
     valtura= request.POST.get('altura')
     vtime= request.POST.get('time')
     vposicao= request.POST.get('posicao')
-    Jogadores.objects.create(nome=vnome, numero=vnumero, idade=vidade, altura=valtura, time=vtime, posicao=vposicao)
+    vdescricao = request.POST.get('posicao')
+    Jogadores.objects.create(nome=vnome, numero=vnumero, idade=vidade, altura=valtura, time=vtime, posicao=vposicao, descricao=vdescricao)
     return redirect(home)
     
 
@@ -34,6 +35,7 @@ def update(request, id):
     altura = request.POST.get("altura")
     time = request.POST.get("time")
     posicao = request.POST.get("posicao")
+    descricao = request.POST.get("descricao")
 
     jogador.nome = nome
     jogador.numero = numero
@@ -41,6 +43,7 @@ def update(request, id):
     jogador.altura = altura
     jogador.time = time
     jogador.posicao = posicao
+    jogador.descricao = descricao
         
     jogador.save()
     return redirect(home)
