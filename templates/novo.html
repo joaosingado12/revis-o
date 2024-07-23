@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
     <form action="{% url 'salvar' %}" method="POST">
         {% csrf_token %}
             <h2>nome</h2>
@@ -23,5 +18,4 @@
             <h2>descricao</h2>
             <input type="text" name="descricao"><br>
             <button type="submit">Criar</button>
-</body>
-</html>
+{% endblock %}
