@@ -1,21 +1,51 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <form action="{% url 'salvar' %}" method="POST">
+
+
+<div class="container my-5">
+    <form action="{% url 'salvar' %}" method="POST" class="form-container">
         {% csrf_token %}
-            <h2>nome</h2>
-            <input type="text" name="nome"><br>
-            <h2>numero</h2>
-            <input type="text" name="numero"><br>
-            <h2>idade</h2>
-            <input type="text" name="idade"><br>
-            <h2>altura</h2>
-            <input type="text" name="altura"><br>
-            <h2>time</h2>
-            <input type="text" name="time"><br>
-            <h2>posição</h2>
-            <input type="text" name="posicao"><br>
-            <h2>descricao</h2>
-            <input type="text" name="descricao"><br>
-            <button type="submit">Criar</button>
+        <h2 class="form-title">Cadastro de Jogador</h2>
+        
+        <div class="form-group">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" name="nome" id="nome" class="form-control form-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="numero" class="form-label">Número</label>
+            <input type="text" name="numero" id="numero" class="form-control form-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="idade" class="form-label">Idade</label>
+            <input type="text" name="idade" id="idade" class="form-control form-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="altura" class="form-label">Altura</label>
+            <input type="text" name="altura" id="altura" class="form-control form-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="clube" class="form-label">Clube</label>
+            <select name="clube" id="clube" class="form-control form-select" required>
+                <option value="">Selecione um clube</option>
+                {% for clube in clubes %}
+                    <option value="{{ clube.id }}" {% if clube == jogador.clube %}selected{% endif %}>{{ clube.nome }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="posicao" class="form-label">Posição</label>
+            <input type="text" name="posicao" id="posicao" class="form-control form-input" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary form-button mt-3">Criar</button>
+    </form>
+</div>
+
+
 {% endblock %}

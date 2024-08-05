@@ -2,11 +2,8 @@
 {% load static %}
 {% block content %}
 
+
   {% include 'partials/navbar.html' %}
-
-    <button><a href="{% url 'novo' %}">Criar novo</a></button>
-
-
     <div class="container my-4">
         <div class="row g-4">
           {% for jogador in jogadores %}
@@ -38,6 +35,6 @@
           {% endfor %}
         </div>
       </div>
-
       {% include 'partials/footer.html' %}
+
 {% endblock %}
